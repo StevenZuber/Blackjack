@@ -5,17 +5,15 @@ public class Card {
 	private Suit suit;
 
 	public Card(Rank r, Suit s) {
-		rank = r;
-		suit = s;
+		this.rank = r;
+		this.suit = s;
 	}
 
 	@Override
 	public String toString() {
 		return  (rank + " of " + suit);
 	}
-
-
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
