@@ -21,7 +21,7 @@ public class Blackjack {
 		Scanner keyboard = new Scanner(System.in);
 
 		while (chips > 0) {
-			System.out.println("You have " + chips + ". How much would you like to bet?");
+			System.out.println("You have " + chips + " chips. How much would you like to bet?");
 			int bet = keyboard.nextInt();
 			boolean endGame = false;
 			if (bet > chips) {
@@ -49,7 +49,11 @@ public class Blackjack {
 				if (response == 1) {
 					playerHand.draw(playingDeck);
 					System.out.println("You were dealt " + playerHand.getCard(playerHand.deckSize() - 1).toString());
-					// bust if over 21
+					if (playerHand.deckSize() >= 5){
+						System.out.println("You got five cards without busting! You win!");
+						chips += (bet * 2);
+					}
+					
 					if (playerHand.handValue() > 21) {
 						System.out.println("Your hand is worth " + playerHand.handValue() + " You busted.");
 						chips -= bet;
@@ -58,14 +62,13 @@ public class Blackjack {
 					}
 				}
 				if (response == 2) {
+					System.out.println("You chose to stay.");
 					break;
 				}
 			}
-			System.out.println("You chose to stay.");
 			System.out.println();
 			System.out.println("The dealer has " + dealerHand.toString());
-			// if dealer has more than player, dealer hits again until
-			// dealer reaches 17
+
 			if ((dealerHand.handValue() > playerHand.handValue()) && endGame == false) {
 				System.out.println("The dealer won. Sorry about that");
 				chips -= bet;
@@ -97,7 +100,7 @@ public class Blackjack {
 			playerHand.restoreDeck(playingDeck);
 			dealerHand.restoreDeck(playingDeck);
 
-			System.out.println("Thanks for playing! Tell your friends!");
+			
 
 		}
 	}
