@@ -49,6 +49,7 @@ public class Blackjack {
 				if (response == 1) {
 					playerHand.draw(playingDeck);
 					System.out.println("You were dealt " + playerHand.getCard(playerHand.deckSize() - 1).toString());
+					
 					if (playerHand.deckSize() >= 5){
 						System.out.println("You got five cards without busting! You win!");
 						chips += (bet * 2);
