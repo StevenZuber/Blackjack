@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Blackjack {
 
-	public static void main(String[] args) {
+	public void playGame() {
 
 		System.out.println("Welcome to our casino! Have a seat at the Blackjack table!");
 		System.out.println();
@@ -16,7 +16,7 @@ public class Blackjack {
 		Deck playerHand = new Deck();
 		Deck dealerHand = new Deck();
 
-		int chips = 100;
+		int chips = 100; 
 
 		Scanner keyboard = new Scanner(System.in);
 
